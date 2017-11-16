@@ -79,3 +79,7 @@ We have conversions form pixels to meters in either direction, and use those to 
 Using `cv2.polylines` we draw our lane lines on a warped blank image, and then use the inverse of the perspective matrix we used to warp the image to birds eye to convert it back. This is then combined with the original image and then we overlay text of the curve radius and distance from center. `draw_lanes(...)`
 
 ![Final output](output_images/final.png)
+
+
+# Known issues
+There are still problems with very large changes in light. There are areas in the video that has very light pavement with a strong light source, and the lane is not found. This could be fixed with additional preprocessing of the image. Another problem is the lack of smoothing, which would alleviate the light problem. The lane won't drastically change quickly so we could smooth over a few frames.
